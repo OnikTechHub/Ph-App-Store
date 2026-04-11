@@ -1,9 +1,10 @@
+import TrandingApps from "@/components/homepage/TrandingApps/TrandingApps";
 
 
 const AppPage = () => {
     return (
         <div>
-            App Page
+            <TrandingApps From="apps"></TrandingApps>
         </div>
     );
 };

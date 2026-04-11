@@ -8,7 +8,7 @@ const Footer = () => {
             <footer className="footer sm:footer-horizontal w-10/12 mx-auto">
                 <aside>
                     <div className="flex gap-2 items-center">
-                        {/* Next.js Image Component ব্যবহার করা হয়েছে */}
+                        
                         <Image 
                             src={logo} 
                             alt="Logo" 

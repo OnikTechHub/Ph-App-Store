@@ -1,9 +1,15 @@
+import Banner from "@/components/homepage/Banner/Banner";
+import Ratings from "@/components/homepage/Ratings/Ratings";
+import TrandingApps from "@/components/homepage/TrandingApps/TrandingApps";
 
 
 const page = () => {
   return (
-    <div className="bg-red-500">
-      <h2>hello next js</h2>
+    <div >
+      <Banner></Banner>
+      <Ratings></Ratings>
+      <TrandingApps from="homepage"></TrandingApps>
+      
     </div>
   );
 };

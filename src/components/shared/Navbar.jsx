@@ -31,7 +31,7 @@ const Navbar = () => {
                 </Link>
             </li>
             <li>
-                <Link href="/installations" className={getLinkClass("/installedApps")}>
+                <Link href="/installations" className={getLinkClass("/installations")}>
                     Installation
                 </Link>
             </li>
