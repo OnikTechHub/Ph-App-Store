@@ -5,6 +5,7 @@ import { ClimbingBoxLoader } from "react-spinners";
 import { FaArrowDown, FaStar } from "react-icons/fa";
 import { GrLike } from "react-icons/gr";
 import AppContext, { AppProvider } from "../../../appContext/AppContext";
+import Image from "next/image";
 
 const AppsDetails = () => {
   const { id } = useParams();
@@ -36,7 +37,7 @@ if ( exists) {
         <>
           <div className="flex w-10/12 mx-auto py-20">
             <div className="pr-10 ">
-              <img className="h-96 rounded-3xl" src={findApp.image} alt="app img" />
+              <Image className="h-96 rounded-3xl" src={findApp.image} alt="app img" />
             </div>
             <div className="space-y-4">
               <h1 className="text-5xl font-bold">{findApp.title}</h1>
@@ -72,3 +73,4 @@ if ( exists) {
 };
 
 export default AppsDetails;
+

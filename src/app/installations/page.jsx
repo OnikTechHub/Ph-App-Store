@@ -3,7 +3,9 @@ import React from 'react';
 const InstallationPage = () => {
     return (
         <div>
-            installations page
+            <h2>
+                hellow 
+            </h2>
         </div>
     );
 };
