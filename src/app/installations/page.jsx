@@ -4,9 +4,8 @@ import React, { useContext } from 'react';
 import Image from 'next/image';
 import { InstallAppContext } from '@/context/InstallContext';
 import { FaArrowDown, FaStar } from "react-icons/fa";
-import { toast } from 'react-toastify'; // Toast ইম্পোর্ট করা হয়েছে
+import { toast } from 'react-toastify'; 
 
-// ১. কার্ড কম্পোনেন্ট
 const InstallAppsCard = ({ app, handleUninstall }) => {
     return (
         <div className="flex flex-col md:flex-row justify-between w-full border border-gray-100 bg-white rounded-2xl p-5 my-4 shadow-sm items-center gap-4">
@@ -44,7 +43,7 @@ const InstallAppsCard = ({ app, handleUninstall }) => {
     );
 };
 
-// ২. মেইন কম্পোনেন্ট
+
 const InstalledApps = () => {
     const context = useContext(InstallAppContext);
 
@@ -54,13 +53,13 @@ const InstalledApps = () => {
 
     const { installApp, setInstallApp } = context;
 
-    // Uninstall করার সময় নোটিফিকেশন
+    
     const handleUninstall = (app) => {
         const appId = app.id || app._id;
         const restApps = installApp.filter(item => (item.id || item._id) !== appId);
         setInstallApp(restApps);
 
-        // ডিলিট সাকসেস নোটিফিকেশন
+        
         toast.error(`${app.title} Uninstalled Successfully!`, {
             icon: "🗑️"
         });

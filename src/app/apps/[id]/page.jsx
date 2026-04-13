@@ -9,6 +9,19 @@ const appPromise = async function () {
     return data;
 }
 
+
+export async function generateMetadata({ params }) {
+  const { id } = await params;
+  const apps = await appPromise();
+  const app = apps.find(app => app.id == id);
+
+
+return {
+  title: `${app.title} - PH Play Store`,
+  description: app.description,
+};
+}
+
 const AppDetailsPage = async ({ params }) => {
 
     const apps = await appPromise();
