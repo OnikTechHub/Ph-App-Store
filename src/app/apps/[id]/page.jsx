@@ -1,27 +1,21 @@
 import Image from "next/image";
-import { FaBuilding, FaDownload, FaStar } from "react-icons/fa";
+import { FaBuilding, FaDownload, FaStar, FaArrowLeft } from "react-icons/fa"; 
 import Link from "next/link";
+import InstallToggleButton from "@/components/apps/InstallToggleButton";
 
 const appPromise = async function () {
     const res = await fetch("http://localhost:3000/data.json");
     const data = await res.json();
     return data;
 }
+
 const AppDetailsPage = async ({ params }) => {
 
     const apps = await appPromise();
-
-    console.log(apps, "Apps")
-
     const { id } = await params;
-    console.log(id, "params")
+    const app = apps.find(app => app.id == id);
 
-    const app = apps.find(app => app.id == id)
-    console.log(app, "Apps")
-
-    
-
-
+  
     return (
         <div className="bg-[#F8F9FB] min-h-screen py-12">
             <div className="max-w-7xl mx-auto px-4">
@@ -47,7 +41,7 @@ const AppDetailsPage = async ({ params }) => {
                             <span className="text-indigo-600 font-bold uppercase tracking-wider text-sm">App Details</span>
                             <h1 className="text-5xl font-black text-gray-900 leading-tight">{app.title}</h1>
                             <div className="flex items-center gap-6 text-gray-500 font-medium">
-                                <span className="flex items-center gap-2"><FaBuilding className="text-gray-300" /> {app.companyName}</span>
+                                <span className="flex items-center gap-2"><FaBuilding className="text-gray-400" /> {app.companyName}</span>
                                 <span className="flex items-center gap-2"><FaStar className="text-orange-400" /> {app.ratingAvg}</span>
                                 <span className="flex items-center gap-2"><FaDownload className="text-green-500" /> {app.downloads}</span>
                             </div>
@@ -73,20 +67,19 @@ const AppDetailsPage = async ({ params }) => {
                             </div>
                         </div>
 
-                        {/* <div className="flex gap-4 pt-4">
-                            <button
-    
-                                className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-10 rounded-2xl transition-all shadow-lg shadow-indigo-100"
+                        {/* Buttons Section */}
+                        <div className="flex  gap-4 pt-4">
+
+                            <Link 
+                                href="/apps" 
+                                className="w-fit flex items-center gap-2 bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold py-3 px-8 rounded-2xl transition-all active:scale-95"
                             >
-                                Install Now
-                            </button>
-                            <button
-                                onClick={() => navigate(-1)}
-                                className="bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold py-4 px-8 rounded-2xl transition-all"
-                            >
-                                Back to apps
-                            </button>
-                        </div> */}
+                                <FaArrowLeft className="text-sm" /> Back to apps
+                            </Link>
+
+                            <InstallToggleButton app={app}></InstallToggleButton>
+                            
+                        </div>
                     </div>
                 </div>
 
