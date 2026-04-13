@@ -5,7 +5,7 @@ import Link from "next/link";
 // import useApps from "@/hooks/useApps";
 
 const appPromise = async function () {
-  const res = await fetch("http://localhost:3000/data.json");
+  const res = await fetch("https://ph-app-store.vercel.app/data.json");
   const data = await res.json();
   return data;
 }
